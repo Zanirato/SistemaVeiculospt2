@@ -1,0 +1,46 @@
+<?php
+// define espaço para organização do código
+namespace Services;
+
+class Auth{
+    private array $usuarios = [];
+
+    //Método construtor
+    public function __construct(){
+        $this ->carregarUsuarios();
+    }
+        
+    // Método para carregar usuários do arquivo JSON
+    private function carregarUsuarios(): void{
+        // Verificar se existe o arquivo 
+        if(file_exists(ARQUIVO_USUARIOS)){
+            //Lê o conteúdo e decodifica o JSON para o array 
+            $conteudo = json_decode(file_get_contents(ARQUIVO_USUARIOS), true);
+
+            //Verifir se é um array
+            $this->usuarios = is_array($conteudo) ? $conteudo : [];
+        } else {
+            $this -> usuarios = [
+                [   'username' => 'admin',
+                    'password' => password_hash('admin123', PASSWORD_DEFAULT),
+                    'perfil' => 'admin'
+                ],
+                [   'username' => 'usuario',
+                    'password' => password_hash('usuario123', PASSWORD_DEFAULT),
+                    'perfil' => 'usuario'
+                ]
+            ];
+            $this ->salvarUsuarios();
+        }
+    }
+    // Função para salvar usuários no arquivo JSON
+    private function salvarUsuarios(): void{
+        $dir = dirname(ARQUIVO_USUARIOS);
+
+        if(!is_dir($dir)){
+            mkdir($dir, 0777, true);
+        }
+
+        file_put_contents(ARQUIVO_USUARIOS,json_encode());
+    }
+}

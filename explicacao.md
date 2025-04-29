@@ -33,3 +33,5 @@ O sistema utiliza:
 - **Interfaces**: Define a interface `Locavel` para veículos e utiliza os métodos `alugar()`, `devolver()` e `isDisponivel()`.
 - **Models**: Classes `Veiculos` (abstrata), `Carro` e `Moto` para os veículos, com cálculo de aluguel baseado em diárias constantes (`DIARIA_CARRO` e `DIARIA_MOTO`).
 - **Services**: Classes `AUTH` (autenticação e gerenciamento de usuários) e `Locadora` (gerenciamento de veículos).
+- **Views**: Template principal `template.php` para renderizar a interface e `login.php` para a autenticação.
+- **Controllers**: Lógica em `index.php` para processar requisições e carregar o template.
