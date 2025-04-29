@@ -43,4 +43,13 @@ class Auth{
 
         file_put_contents(ARQUIVO_USUARIOS,json_encode($this->usuarios, JSON_PRETTY_PRINT));
     }
+
+    //Método para realizar login 
+    public function login(string $username, string $password): bool{
+        foreach ($this ->usuarios as $usuario){
+            if ($usuario['username'] === $username && password_verify($password, $usuario['password'])){
+                
+            }
+        }
+    }
 }
