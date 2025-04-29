@@ -41,6 +41,6 @@ class Auth{
             mkdir($dir, 0777, true);
         }
 
-        file_put_contents(ARQUIVO_USUARIOS,json_encode());
+        file_put_contents(ARQUIVO_USUARIOS,json_encode($this->usuarios, JSON_PRETTY_PRINT));
     }
 }
