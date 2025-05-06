@@ -3,7 +3,7 @@
         "tipo": "Carro",
         "modelo": "Uno",
         "placa": "AGF3U45",
-        "disponivel": false
+        "disponivel": true
     },
     {
         "tipo": "Moto",
@@ -34,5 +34,11 @@
         "modelo": "BMW",
         "placa": "KLJ8J09",
         "disponivel": false
+    },
+    {
+        "tipo": "Carro",
+        "modelo": "",
+        "placa": "",
+        "disponivel": true
     }
 ]
